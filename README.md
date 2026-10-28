@@ -125,7 +125,7 @@ Replace every placeholder in the workflow JSON before deploying.
 ## Validation (KQL)
 
 ```kql
-WebexLogsTest_CL
+WebexAuditLogs_CL
 | where TimeGenerated > ago(7d)
 | project TimeGenerated, Created_t, ActorEmail_s, EventCategory_s, EventDescription_s, ActionText_s
 | order by Created_t desc
@@ -134,7 +134,7 @@ WebexLogsTest_CL
 Last ingested event time (the same query the workflow uses):
 
 ```kql
-WebexLogsTest_CL
+WebexAuditLogs_CL
 | where TimeGenerated > ago(90d)
 | summarize LastCreated = max(Created_t)
 ```
